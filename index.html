@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sentiment — анализ тональности</title><link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"></head>
+<body><div class="layout"><aside><div class="logo"><b>S</b><div><strong>sentiment</strong><small>TEXT ANALYTICS</small></div></div>
+<div class="label">РАБОЧЕЕ ПРОСТРАНСТВО</div><button class="nav active" data-view="analyze">✳　Анализ текста</button><button class="nav" data-view="history">◷　История анализов</button>
+<div class="side-status"><i></i><div><b>Система анализа</b><small id="status">Проверка модели…</small></div></div></aside>
+<main><header><div><small>ИНСТРУМЕНТ АНАЛИЗА</small><h1 id="title">Анализ тональности текста</h1></div><span class="pill">● Локальное приложение</span></header>
+<section id="analyze" class="view"><div class="intro"><div><h2>Что говорит этот текст?</h2><p>Введите сообщение — система определит его эмоциональную окраску.</p></div><div class="spark">✦</div></div>
+<div class="columns"><article class="card"><div class="cardhead"><h3><em>01</em> Исходный текст</h3><small id="count">0 / 4000</small></div>
+<textarea id="text" maxlength="4000" placeholder="Например: Мне очень понравился этот сервис. Всё работает быстро и удобно!"></textarea>
+<div class="examples"><span>Попробуйте пример:</span><button data-text="Очень понравился результат! Всё отлично работает, спасибо за качественный сервис." class="pos">Позитивный</button><button data-text="Заказ был оформлен сегодня, доставка запланирована на завтра." class="neu">Нейтральный</button><button data-text="Очень разочарован качеством. Всё работает плохо, а поддержка не помогла." class="neg">Негативный</button></div>
+<div class="actions"><button id="clear" class="secondary">Очистить поле</button><button id="go" class="primary">Анализировать　→</button></div><div id="error" class="error hidden"></div></article>
+<article class="card result"><div class="cardhead"><h3><em>02</em> Результат анализа</h3><small class="tag">РЕЗУЛЬТАТ</small></div>
+<div id="empty" class="empty"><div class="orb">✧</div><b>Здесь появится результат</b><p>Отправьте текст на анализ, чтобы увидеть категорию тональности и оценку модели.</p></div>
+<div id="output" class="hidden output"><div id="face" class="face">☺</div><h2 id="sentiment">Положительная</h2><p id="desc"></p><div class="meter-label"><span>Оценка уверенности</span><b id="confidence">0%</b></div><div class="track"><div id="bar"></div></div><div class="meta"><span>Метод анализа</span><b id="method"></b></div><div class="meta"><span>Время</span><b id="created"></b></div></div></article></div>
+<div class="note"><b>i</b><p><strong>Важно:</strong> результат автоматического анализа является оценкой модели. Ирония, сарказм и контекст могут влиять на точность классификации.</p></div></section>
+<section id="history" class="view hidden"><div class="intro"><div><h2>История ваших анализов</h2><p>Последние результаты сохраняются в базе данных приложения.</p></div><div class="spark">◷</div></div><article class="card"><div class="cardhead"><h3><em>03</em> Сохранённые результаты</h3><button id="clear-history" class="danger">Очистить историю</button></div><div id="history-list" class="history-list">Загрузка истории…</div></article></section>
+<footer><span>Sentiment Analysis System</span><span>Учебный программный проект</span></footer></main></div><script src="{{ url_for('static',filename='app.js') }}"></script></body></html>
